@@ -35,4 +35,4 @@ while True :
   elif p=4:
     option=input("how you want to find")
     file=input("Enter Filename")
-    os.system("grep {} pattern {}".format(option, file)
+    os.system("grep {} {}".format(option, file))
