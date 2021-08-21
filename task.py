@@ -1,4 +1,3 @@
-#This is a user friendly software for windows 8 or 8.1
 import pyttsx3
 import os
 import time
