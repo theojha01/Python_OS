@@ -51,3 +51,36 @@ while True :
     disk=input("enter your disk name")
     os.system("sudo fdisk /dev/{}".format(disk))
     
+  elif p=8:
+    webserver=input("Enter which webserver is installed")
+	if webserver=="httpd":
+	    os.system("systemctl stop firewalld")
+	    print("Starting the apache services")
+	    os.system("systemctl start httpd")
+	    print("Copy your index.html files in /var/www/html/ folder ")
+	    time.sleep(2)
+	    os.system("ifconfig enp0s3")
+	    print("Enter the local vm ip in webbrowser for checking site")
+
+	else:
+	    os.system("systemctl stop firewalld")
+	    print("Starting the nginx services")
+	    os.system("systemctl start nginx")
+	    print("Copy your index.html files in /usr/bin/share/html/ folder ")
+	    time.sleep(2)
+	    os.system("ifconfig enp0s3")
+	    print("Enter the local vm ip in webbrowser for checking site")
+	      
+	      
+  elif p=9:
+    os.system("crontab –e")
+
+  elif p=10:
+    initdisk=input("Enter the destination where to mount")
+    finaldisk=input("Enter the disk path")
+    os.system("mount -t ntfs {}  {}".format(initdisk, finaldisk))
+	      
+  elif p=11:
+    os.system("vim /etc/fstab")
+	      
+  
