@@ -16,7 +16,7 @@ while True :
   print("Press 7 to Create Partition \t\t\t\t\t Press 8 To create a webserver")
   print("Press 9 to setting up different cronjobs \t\t\t Press 10 to Mount Disk")
   print("Press 11 to fstab for mounting \t\t\t\t\t Press 12 To create physical volumes")
-  print("Press 13 To create a volume group \t\t\t\t Press 14 to create logical volumes")
+  print("Press 13 To create a volume group \t\t\t\t Press 14 to check logical volumes")
   print("Press 0 to Exit")
   
   pyttsx3.speak("How may I assist you")
@@ -83,4 +83,16 @@ while True :
   elif p=11:
     os.system("vim /etc/fstab")
 	      
-  
+  elif p=12:
+    initdisk=input("Enter the destination where to mount")
+    finaldisk=input("Enter the disk path")
+    os.system("pvcreate {}  {}".format(initdisk, finaldisk))
+	      
+  elif p=13:
+    grname=input("Enter your group name")
+    initdisk=input("Enter the destination where to mount")
+    finaldisk=input("Enter the disk path")
+    os.system("vgcreate {}  {} {}".format(grname,initdisk, finaldisk))
+	      
+  elif p=14:
+    os.system("lvdisplay")
