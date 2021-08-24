@@ -92,7 +92,7 @@ while True :
   elif p==10:
     initdisk=input("Enter the destination where to mount ")
     finaldisk=input("Enter the disk path ")
-    os.system("sudomount -t ntfs {}  {}".format(initdisk, finaldisk))
+    os.system("sudo mount -t ntfs {}  {}".format(initdisk, finaldisk))
     time.sleep(4)
 	      
   elif p==11:
