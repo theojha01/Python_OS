@@ -1,4 +1,3 @@
-#import pyttsx3
 import os
 import time
 import getpass
@@ -27,7 +26,7 @@ while True :
   p=int(input("HOW MAY I ASSIST YOU "))
   if p==1:
     packagename=input("ENTER PACKAGENAME: ")
-    os.system("yum install {} -y ".format(packagename))
+    os.system("sudo yum install {} -y ".format(packagename))
     os.system("espeak-ng 'packages installed'")
     time.sleep(4)
     
@@ -41,13 +40,13 @@ while True :
     os.system("ls -l")
     
   elif p==4:
-    option=input("how you want to find")
-    file=input("Enter Filename")
-    os.system("grep {} {}".format(option, file))
+    option=input("how you want to find ")
+    file=input("Enter Filename ")
+    os.system("ls | grep {} {}".format(option, file))
   
   elif p==5:
-    service=input("Enter Service Name")
-    os.system("systemctl start {}".format(service))
+    service=input("Enter Service Name ")
+    os.system("sudo systemctl start {}".format(service))
     os.system("espeak-ng 'service is started'")
     time.sleep(4)
 
@@ -60,11 +59,11 @@ while True :
     time.sleep(4)
   
   elif p==7:
-    disk=input("enter your disk name")
+    disk=input("enter your disk name ")
     os.system("sudo fdisk /dev/{}".format(disk))
     
   elif p==8:
-    webserver=input("Enter which webserver is installed")
+    webserver=input("Enter which webserver is installed ")
     if webserver=="httpd":
         os.system("systemctl stop firewalld")
         print("Starting the apache services")
@@ -91,9 +90,9 @@ while True :
     time.sleep(4)
 
   elif p==10:
-    initdisk=input("Enter the destination where to mount")
-    finaldisk=input("Enter the disk path")
-    os.system("mount -t ntfs {}  {}".format(initdisk, finaldisk))
+    initdisk=input("Enter the destination where to mount ")
+    finaldisk=input("Enter the disk path ")
+    os.system("sudomount -t ntfs {}  {}".format(initdisk, finaldisk))
     time.sleep(4)
 	      
   elif p==11:
@@ -101,20 +100,20 @@ while True :
     time.sleep(4)
 	      
   elif p==12:
-    initdisk=input("Enter the destination where to mount")
-    finaldisk=input("Enter the disk path")
-    os.system("pvcreate {}  {}".format(initdisk, finaldisk))
+    initdisk=input("Enter the destination where to mount ")
+    finaldisk=input("Enter the disk path ")
+    os.system("sudo pvcreate {}  {}".format(initdisk, finaldisk))
     time.sleep(4)
 	      
   elif p==13:
-    grname=input("Enter your group name")
-    initdisk=input("Enter the destination where to mount")
-    finaldisk=input("Enter the disk path")
-    os.system("vgcreate {}  {} {}".format(grname,initdisk, finaldisk))
+    grname=input("Enter your group name ")
+    initdisk=input("Enter the destination where to mount ")
+    finaldisk=input("Enter the disk path ")
+    os.system("sudo vgcreate {}  {} {}".format(grname,initdisk, finaldisk))
     time.sleep(4)
 	      
   elif p==14:
-    os.system("lvdisplay")
+    os.system("sudo lvdisplay")
     time.sleep(4)
     
   elif p==0:
