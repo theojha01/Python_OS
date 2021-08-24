@@ -29,12 +29,12 @@ while True :
     packagename=input("ENTER PACKAGENAME: ")
     os.system("yum install {} -y ".format(packagename))
     os.system("espeak-ng 'packages installed'")
-    time.sleep(2)
+    time.sleep(4)
     
   elif p==2:
     os.system("espeak-ng 'Date is'")
     os.system("date")
-    time.sleep(2)
+    time.sleep(4)
   
   elif p==3:
     os.system("espeak-ng 'Current Directory list is'")
@@ -49,14 +49,15 @@ while True :
     service=input("Enter Service Name")
     os.system("systemctl start {}".format(service))
     os.system("espeak-ng 'service is started'")
-    time.sleep(2)
+    time.sleep(4)
 
   elif p==6:
     name=input("Enter new user name: ")
     passwd = getpass.getpass(prompt="Enter password: ")
     os.system("sudo useradd {}".format(name))
     os.system("sudo passwd {}".format(name))
-    time.sleep(2)
+    os.system("espeak-ng 'user is now created'")
+    time.sleep(4)
   
   elif p==7:
     disk=input("enter your disk name")
@@ -73,6 +74,7 @@ while True :
         os.system("ifconfig enp0s3")
         print("Enter the local vm ip in webbrowser for checking site")
         os.system("espeak-ng 'Enter the local vm ip in webbrowser for checking site'")
+        time.sleep(4)
     else:
         os.system("systemctl stop firewalld")
         print("Starting the nginx services")
@@ -82,30 +84,38 @@ while True :
         os.system("ifconfig enp0s3")
         print("Enter the local vm ip in webbrowser for checking site")
         os.system("espeak-ng 'Enter the local vm ip in webbrowser for checking site'")
+        time.sleep(4)
 	      
   elif p==9:
     os.system("crontab –e")
+    time.sleep(4)
 
   elif p==10:
     initdisk=input("Enter the destination where to mount")
     finaldisk=input("Enter the disk path")
     os.system("mount -t ntfs {}  {}".format(initdisk, finaldisk))
+    time.sleep(4)
 	      
   elif p==11:
     os.system("vim /etc/fstab")
+    time.sleep(4)
 	      
   elif p==12:
     initdisk=input("Enter the destination where to mount")
     finaldisk=input("Enter the disk path")
     os.system("pvcreate {}  {}".format(initdisk, finaldisk))
+    time.sleep(4)
 	      
   elif p==13:
     grname=input("Enter your group name")
     initdisk=input("Enter the destination where to mount")
     finaldisk=input("Enter the disk path")
     os.system("vgcreate {}  {} {}".format(grname,initdisk, finaldisk))
+    time.sleep(4)
 	      
   elif p==14:
     os.system("lvdisplay")
+    time.sleep(4)
+    
   elif p==0:
     break
