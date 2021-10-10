@@ -120,17 +120,6 @@ while True:
   elif("create" in ch) or ("directory" in ch):
     wb.open("http://192.168.43.202/cgi-bin/newtask.py?x=mkdir%20/namenode")
     pyttsx3.speak("directory created")
-  #########
-  ##set cronjobs
-  elif("set" in ch) or ("create" in ch) and ("cronjobs" in ch):
-    command=input("Enter command to run in every two minutes: ")
-    filename=input("Enter the filename to execute: ")
-    commandpass=f"cat; | echo */2 * * * * {command} {filename}"
-    # wb.open(f"http://192.168.43.202/cgi-bin/newtask.py?x=find%20./{dirpath}%20-name%20{filename}")  #if command not worked try 
-    wb.open(f"http://192.168.43.202/cgi-bin/newtask.py?x=crontab%20-l%20|%20{commandpass}|%20crontab%20-") #check format
-    #pyttsx3.speak("Package is installed")
-    pyttsx3.speak("cronjob set")
-  #########
   elif("SDK" in ch) or ("python library" in ch):
     wb.open("http://192.168.43.202/cgi-bin/newtask.py?x=pip3%20install%20boto3")
     pyttsx3.speak("boto three is already satisfied")  
