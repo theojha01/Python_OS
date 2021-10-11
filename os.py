@@ -111,6 +111,16 @@ while True:
   elif("launch" in ch) and ("docker container" in ch):
     wb.open("http://192.168.43.202/cgi-bin/newtask.py?x=docker%20run%20-dit%20wordpress")
     pyttsx3.speak("word press container is successfully launched")
+  #########
+  elif("set" in ch) or ("create" in ch) and ("cronjobs" in ch):
+    command=input("Enter command to run in every two minutes: ")
+    filename=input("Enter the filename to execute: ")
+    commandpass=f"cat; | echo */2 * * * * {command} {filename}"
+    # wb.open(f"http://192.168.43.202/cgi-bin/newtask.py?x=find%20./{dirpath}%20-name%20{filename}")  #if command not worked try 
+    wb.open(f"http://192.168.43.202/cgi-bin/newtask.py?x=crontab%20-l%20|%20{commandpass}|%20crontab%20-") #check format
+    #pyttsx3.speak("Package is installed")
+    pyttsx3.speak("cronjob set")
+  #########
   elif("verify" in ch) and ("docker container" in ch) or ("container launched" in ch):
     wb.open("http://192.168.43.202/cgi-bin/newtask.py?x=docker%20ps")
     pyttsx3.speak("wordpress container is running....")
